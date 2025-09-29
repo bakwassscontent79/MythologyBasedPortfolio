@@ -1,0 +1,204 @@
+/* Tailwind imports would go here if using Tailwind */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* Existing portfolio styles */
+:root {
+    --midnight-blue: #0a0a2a;
+    --gold: #ffd700;
+    --saffron: #ff9933;
+    --neon-green: #39ff14;
+    --digital-purple: #800080;
+    --dark-bg: #050513;
+    --card-bg: rgba(10, 10, 42, 0.7);
+    --chakra-color: #ff5555;
+}
+
+/* Additional global styles for React component */
+/* Theme tokens */
+:root{
+  --midnight-900: #0b1221;
+  --saffron-500: #ff9933;
+  --gold-400: #ffd700;
+  --neon-500: #39ff14; /* matching portfolio palette */
+  --cream-50: #fbf6ef;
+}
+
+/* Glass card */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,250,240,0.45));
+  backdrop-filter: blur(6px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.55);
+}
+
+/* bob animation for float */
+@keyframes bob {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.wobble { animation: bob 5s ease-in-out infinite; }
+
+/* clip-path smoothing fallback */
+.motion-reveal { transition: clip-path .8s cubic-bezier(.2,.9,.3,1), transform .6s; }
+
+/* focus-visible style */
+:focus-visible { outline: 3px solid rgba(255,191,0,0.25); outline-offset: 3px; }
+
+/* Responsive tweak: reduce motion on small devices */
+@media (max-width: 640px) {
+  .wobble { animation: none; transform: translateY(0); }
+}
+
+/* Portfolio Gallery Styles */
+.portfolio-gallery {
+  padding: 3rem 2rem;
+  background: rgba(10, 10, 42, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .gallery-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.gallery-item {
+  display: block;
+  text-decoration: none;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 150px;
+}
+
+.item-image-container img {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.placeholder-mandala {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.mandala-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.item-content {
+  padding: 1rem;
+  text-align: center;
+  background: rgba(10, 10, 42, 0.3);
+}
+
+.item-title {
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.item-subtitle {
+  font-size: 0.9rem;
+  color: var(--saffron);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.item-tag {
+  font-size: 0.8rem;
+  color: var(--neon-green);
+  background: rgba(57, 255, 20, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* CTA Card Styling */
+.gallery-item.cta {
+  background: linear-gradient(45deg, var(--digital-purple), #ff5555);
+  border: 2px solid var(--gold);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-item.cta .item-content {
+  background: transparent;
+}
+
+.gallery-item.cta .item-title {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.gallery-item.cta .item-subtitle {
+  color: var(--cream-50);
+}
+
+/* Client Card Styling */
+.gallery-item.client {
+  min-height: 150px;
+}
+
+.gallery-item.client .item-image-container {
+  min-height: 100px;
+}
+
+.gallery-item.client .item-content {
+  padding: 0.5rem;
+}
+
+.gallery-item.client .item-title {
+  font-size: 1rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    background: linear-gradient(180deg, rgba(11, 18, 33, 0.7), rgba(11, 18, 33, 0.5));
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}

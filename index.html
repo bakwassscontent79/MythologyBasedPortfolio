@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Prashar: The Business Transformer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="three-d.css">
+    <link rel="stylesheet" href="src/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Add React and Framer Motion -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Audio Player for Background Music -->
+    <audio id="background-music" loop>
+        <source src="shakti-bhakti-lofi.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music Control Button -->
+    <div class="music-control" id="music-control">
+        <span class="music-icon">♪</span>
+        <span class="music-text">Play Music</span>
+    </div>
+
+    <!-- Floating Profile Image -->
+    <div class="floating-profile">
+        <img src="Aniket.jpg" alt="Aniket Prashar" class="profile-image">
+    </div>
+
+    <!-- Hero Section with Shloka -->
+    <section class="hero" id="home">
+        <div class="mandala-bg"></div>
+        <div class="deity-container">
+            <div class="deity"></div>
+            <div class="deity"></div>
+            <div class="deity"></div>
+        </div>
+        <div class="container">
+            <div class="shloka-container">
+                <h1 class="shloka">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन</h1>
+                <p class="translation">"You have the right to work only, not to the fruits thereof"</p>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="direct-text">I don't just build websites.</p>
+                    <p class="direct-text">I turn chai stalls into digital brands.</p>
+                    <p class="direct-text">I turn small hustles into internet blasters.</p>
+                    <p class="direct-text">I build futures.</p>
+                    
+                    <p class="shloka-text">मैं समय हूँ</p>
+                    
+                    <button class="quote-button" onclick="openQuoteForm()">Get a Quote</button>
+                </div>
+                
+                <div class="hero-image-container">
+                    <div class="image-display-area">
+                        <img src="Aniket.jpg" alt="Aniket Prashar" class="display-image" onerror="this.style.display='none';">
+                        <p class="image-caption">Hi, I am <span class="animated-name">Aniket Prashar</span></p>
+                        <p class="professional-titles">I am <span class="shloka-highlight">developer</span>, <span class="shloka-highlight">creator</span>, <span class="shloka-highlight">designer</span>, <span class="shloka-highlight">growth expert</span>, <span class="shloka-highlight">SEO and Geo expert</span>, <span class="shloka-highlight">market analyst</span> worked with companies like FAANG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery Section -->
+    <section id="portfolio-gallery"></section>
+
+    <!-- Quote Form Popup -->
+    <div id="quotePopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-popup" onclick="closeQuoteForm()">&times;</span>
+            <h2>Get a Quote</h2>
+            <form id="quoteForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Description:</label>
+                    <textarea id="project" name="project" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Estimated Budget (INR):</label>
+                    <select id="budget" name="budget">
+                        <option value="20000-50000">₹20,000 - ₹50,000</option>
+                        <option value="50000-100000">₹50,000 - ₹1,00,000</option>
+                        <option value="100000-150000">₹1,00,000 - ₹1,50,000</option>
+                        <option value="150000-200000">₹1,50,000 - ₹2,00,000</option>
+                        <option value="200000+">₹2,00,000+</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-button">Submit Request</button>
+            </form>
+        </div>
+    </div>
+    <!-- End Quote Form Popup -->
+
+    <!-- Who Am I Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Who Am I? <span class="subtitle">(The Arjuna Mode)</span></h2>
+            </div>
+            <div class="content-wrapper">
+                <p>I'm Aniket Prashar — <span class="shloka-highlight">hackathon warrior</span>, <span class="shloka-highlight">web developer</span>, builder of 50+ digital realms, problem solver, and modern-day Vishwakarma.</p>
+                <p>I've worked with clients in Dubai & America, co-created ERP + Inventory systems, delivered a government report for Bihar, automated dropshipping stores with n8n, and freelanced across industries.</p>
+                <p>I've been a <span class="shloka-highlight">data analyst at Amazon</span>, supported IFB & Havells, and mastered tools from Power BI to BurpSuite.</p>
+                <p class="dharma">But my real dharma?<br>
+                👉 Empowering the <span class="shloka-highlight">chaiwala, mithaiwala, thelewala</span> with the same digital shakti as Fortune 500 founders.<br>
+                For me, everyone is a <span class="shloka-highlight">businessman</span>. Everyone deserves the internet spotlight.</p>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Impact Stats Section with Shlokas -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2>Impact Stats <span class="subtitle">(Shloka-Style Counters)</span></h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Websites Built 🌍</div>
+                    <div class="shloka-quote">"श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Hackathons 🏆</div>
+                    <div class="shloka-quote">"उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Govt</div>
+                    <div class="stat-label">Reports Delivered 📑</div>
+                    <div class="shloka-quote">"सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Global</div>
+                    <div class="stat-label">Clients Served 🌎</div>
+                    <div class="shloka-quote">"वसुधैव कुटुम्बकम्"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Small</div>
+                    <div class="stat-label">Businesses Transformed 💡</div>
+                    <div class="shloka-quote">"आनन्दाय चर्षणिः"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">ERP</div>
+                    <div class="stat-label">Systems Designed ⚙️</div>
+                    <div class="shloka-quote">"योगः कर्मसु कौशलम्"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Cyber</div>
+                    <div class="stat-label">Tools Implemented 🛡️</div>
+                    <div class="shloka-quote">"अथ चेत्त्वमिमं धर्म्यं संग्रामं न करिष्यसि"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Subscribers</div>
+                    <div class="stat-label">Helped 🔥</div>
+                    <div class="shloka-quote">"तस्माद्विगतमतयः स्थित्यं धर्ममिमं परम्"</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Business</div>
+                    <div class="stat-label">Models Automated 🤖</div>
+                    <div class="shloka-quote">"नैव किंचित्करोमीति युक्तो मन्येत तत्त्ववित्"</div>
+                </div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- What I Build Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Build <span class="subtitle">(Asura → Deva Transformation Animations)</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Modern, responsive websites and applications</p>
+                    <div class="shloka-mini">"यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः"</div>
+                </div>
+                <div class="service-card">
+                    <h3>ERP & Inventory Systems</h3>
+                    <p>Workflows, accounting, automation for businesses</p>
+                    <div class="shloka-mini">"समत्वं योग उच्यते"</div>
+                </div>
+                <div class="service-card">
+                    <h3>Cybersecurity Tools</h3>
+                    <p>Nmap, Metasploit, BurpSuite, Hydra implementations</p>
+                    <div class="shloka-mini">"दुर्गमप्यतरं नास्ति चित्तस्य नियतस्य तु"</div>
+                </div>
+                <div class="service-card">
+                    <h3>Automation Pipelines</h3>
+                    <p>Dropshipping via n8n, Docker CI/CD</p>
+                    <div class="shloka-mini">"काले वर्तमाने कले कर्मण्येव निधीयताम्"</div>
+                </div>
+                <div class="service-card">
+                    <h3>Business Building</h3>
+                    <p>Transforming hustles into scalable ventures</p>
+                    <div class="shloka-mini">"अर्थस्य च पुरुषार्थेन कर्तव्यः परिपूरणः"</div>
+                </div>
+                <div class="service-card">
+                    <h3>Community Builds</h3>
+                    <p>Free portfolios & landing pages for subscribers</p>
+                    <div class="shloka-mini">"जनकस्य हि धर्मेण पुत्रस्य च महात्मनः"</div>
+                </div>
+                <div class="service-card">
+                    <h3>IoT Projects</h3>
+                    <p>Connected devices and smart solutions</p>
+                    <div class="shloka-mini">"विश्वं खल्विदम् ब्रह्म"</div>
+                </div>
+                <div class="service-card">
+                    <h3>Data Analytics</h3>
+                    <p>Insights from data for business growth</p>
+                    <div class="shloka-mini">"बुद्धिर्बलवती तुष्टा"</div>
+                </div>
+                <div class="service-card">
+                    <h3>DPR Reports</h3>
+                    <p>Financial & government-ready documents</p>
+                    <div class="shloka-mini">"ऋतं च स्वराज्यं च सत्यं च निहितं गुहाह्"</div>
+                </div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Signature Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Signature Projects <span class="subtitle">(Mahakavya Style)</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Nasha Report (Bihar Govt)</h3>
+                    <p>Data-driven social governance tool</p>
+                    <div class="shloka-mini">"परित्राणाय साधूनां विनाशाय च दुष्कृताम्"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Queue Booking System (Barbers)</h3>
+                    <p>Eliminated wait lines through technology</p>
+                    <div class="shloka-mini">"कालो ह्ययं गतिर्भावान्न त्वं तस्य च कारणम्"</div>
+                </div>
+                <div class="project-card">
+                    <h3>ERP + Inventory Manager</h3>
+                    <p>Integrated system for manufacturers</p>
+                    <div class="shloka-mini">"सर्वकर्माणि मे प्राणा धर्मेण परिवर्तते"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Universal Chatbot & AI-Aniket Intelligence</h3>
+                    <p>Multi-industry conversational AI</p>
+                    <div class="shloka-mini">"बहूनां जन्मनामन्ते ज्ञानवान्मां प्रपद्यते"</div>
+                </div>
+                <div class="project-card">
+                    <h3>ML TRAINER FINAL BOSS</h3>
+                    <p>Modular ML trainer with dashboards</p>
+                    <div class="shloka-mini">"यस्मात्क्षरमतीतोऽहमक्षरादपि चोत्तमः"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Heart Disease Predictor</h3>
+                    <p>CSV upload → predictions + ROC</p>
+                    <div class="shloka-mini">"आयुष्मान्भव"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Dropshipping Automation</h3>
+                    <p>Full-cycle n8n-powered automation</p>
+                    <div class="shloka-mini">"कर्मणो ह्यपि बोद्धव्यं बोद्धव्यं च विवक्षया"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Festival Ecommerce Store</h3>
+                    <p>Laxmi-Ganesh festive gifts & POD</p>
+                    <div class="shloka-mini">"लक्ष्मीर्भूषणसंयुक्ता गरुडस्था जगत्पते"</div>
+                </div>
+                <div class="project-card">
+                    <h3>Digital Growth for Juicewala</h3>
+                    <p>Online orders, QR branding for local business</p>
+                    <div class="shloka-mini">"आपूर्यमाणमचलप्रतिष्ठं"</div>
+                </div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Tech Arsenal Section -->
+    <section class="tech">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tech Arsenal <span class="subtitle">(Grid with Neon Hover)</span></h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>React, Vue.js</li>
+                        <li>Node.js, Express</li>
+                        <li>WordPress, Shopify</li>
+                        <li>SEO Optimization</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Data & Analytics</h3>
+                    <ul>
+                        <li>SQL, MongoDB</li>
+                        <li>Power BI, Tableau</li>
+                        <li>Python, Pandas, NumPy</li>
+                        <li>Excel Automation</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Business Tools</h3>
+                    <ul>
+                        <li>ERP Development</li>
+                        <li>Inventory Systems</li>
+                        <li>Automation Workflows</li>
+                        <li>n8n, Zapier</li>
+                        <li>Docker, CI/CD</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li>Nmap, BurpSuite</li>
+                        <li>Hydra, Metasploit</li>
+                        <li>Network Security</li>
+                        <li>Vulnerability Testing</li>
+                        <li>Ethical Hacking</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>AI/ML</h3>
+                    <ul>
+                        <li>TensorFlow, PyTorch</li>
+                        <li>LLaMA-3, OpenAI</li>
+                        <li>Chatbot Development</li>
+                        <li>Predictive Analytics</li>
+                        <li>NLP Applications</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>IoT & Cloud</h3>
+                    <ul>
+                        <li>Arduino, Raspberry Pi</li>
+                        <li>AWS, Google Cloud</li>
+                        <li>Server Management</li>
+                        <li>API Development</li>
+                        <li>Mobile App Integration</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Marketing & Growth</h3>
+                    <ul>
+                        <li>Digital Marketing</li>
+                        <li>Social Media Strategy</li>
+                        <li>Content Creation</li>
+                        <li>Brand Development</li>
+                        <li>Growth Hacking</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Design & Creative</h3>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Video Editing</li>
+                        <li>Graphic Design</li>
+                        <li>Animation</li>
+                        <li>3D Visualization</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>DSA & Problem Solving</h3>
+                    <ul>
+                        <li>Algorithms & Data Structures</li>
+                        <li>Competitive Programming</li>
+                        <li>System Design</li>
+                        <li>Optimization Techniques</li>
+                        <li>Debugging & Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- 50+ Extra Things Section -->
+    <section class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>50+ Extra Things You Can Do <span class="subtitle">(Flex Section)</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-item">Web Development</div>
+                <div class="skill-item">Business Building</div>
+                <div class="skill-item">Data Analysis</div>
+                <div class="skill-item">ERP Systems</div>
+                <div class="skill-item">Cybersecurity</div>
+                <div class="skill-item">Automation</div>
+                <div class="skill-item">AI/ML Implementation</div>
+                <div class="skill-item">IoT Projects</div>
+                <div class="skill-item">Digital Marketing</div>
+                <div class="skill-item">Brand Development</div>
+                <div class="skill-item">Content Creation</div>
+                <div class="skill-item">Social Media Growth</div>
+                <div class="skill-item">E-commerce Solutions</div>
+                <div class="skill-item">Mobile App Integration</div>
+                <div class="skill-item">API Development</div>
+                <div class="skill-item">Cloud Deployment</div>
+                <div class="skill-item">Server Management</div>
+                <div class="skill-item">Database Design</div>
+                <div class="skill-item">UI/UX Design</div>
+                <div class="skill-item">Graphic Design</div>
+                <div class="skill-item">Video Editing</div>
+                <div class="skill-item">3D Visualization</div>
+                <div class="skill-item">Animation</div>
+                <div class="skill-item">SEO Optimization</div>
+                <div class="skill-item">Growth Hacking</div>
+                <div class="skill-item">Community Building</div>
+                <div class="skill-item">Hackathon Participation</div>
+                <div class="skill-item">Mentorship</div>
+                <div class="skill-item">Training & Workshops</div>
+                <div class="skill-item">Consulting</div>
+                <div class="skill-item">Project Management</div>
+                <div class="skill-item">Client Relations</div>
+                <div class="skill-item">Proposal Writing</div>
+                <div class="skill-item">Report Generation</div>
+                <div class="skill-item">Financial Modeling</div>
+                <div class="skill-item">Market Research</div>
+                <div class="skill-item">Competitive Analysis</div>
+                <div class="skill-item">Risk Assessment</div>
+                <div class="skill-item">Quality Assurance</div>
+                <div class="skill-item">Testing & Debugging</div>
+                <div class="skill-item">Documentation</div>
+                <div class="skill-item">Technical Writing</div>
+                <div class="skill-item">Public Speaking</div>
+                <div class="skill-item">Presentation Design</div>
+                <div class="skill-item">Negotiation</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Team Building</div>
+                <div class="skill-item">Strategic Planning</div>
+                <div class="skill-item">Innovation</div>
+                <div class="skill-item">Problem Solving</div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me Section -->
+    <section class="why-work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Me? <span class="subtitle">(Mahabharata Style)</span></h2>
+            </div>
+            <div class="quote-container">
+                <p class="mahabharata-quote">"Whether you are Arjuna with arrows (Startup founder) or Ekalavya with a bow made of wood (local hustler) — you deserve the same shot at greatness."</p>
+                <p class="conclusion">I bring the chakra of technology and the bow of execution — together, we slay inefficiency and create brands that shine brighter than Surya.</p>
+                <div class="shloka-final">"योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनंजय"</div>
+            </div>
+        </div>
+        <div class="chakra-divider">
+            <div class="chakra-spin"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact <span class="subtitle">(Divine Cards)</span></h2>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:prashataniket025@gmail.com" class="contact-card" target="_blank">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">prashataniket025@gmail.com</div>
+                </a>
+                <a href="https://wa.me/91916202815368" class="contact-card" target="_blank">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">WhatsApp</div>
+                    <div class="contact-value">+91 916202815368</div>
+                </a>
+                <a href="https://instagram.com/anikettt.tsx" class="contact-card" target="_blank">
+                    <div class="contact-icon">📷</div>
+                    <div class="contact-label">Instagram</div>
+                    <div class="contact-value">@anikettt.tsx</div>
+                </a>
+                <a href="https://github.com/bakwassscontent79" class="contact-card" target="_blank">
+                    <div class="contact-icon">🔗</div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">bakwassscontent79</div>
+                </a>
+                <a href="https0://portfolio-anikettt.netlify.app" class="contact-card" target="_blank">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-label">Portfolio</div>
+                    <div class="contact-value">portfolio-anikettt.netlify.app</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume">
+        <div class="container">
+            <div class="section-header">
+                <h2>Resume <span class="subtitle">(Download PDF)</span></h2>
+            </div>
+            <div class="resume-content">
+                <p>Want to know more about my professional journey and accomplishments?</p>
+                <a href="AniketPrashar_Resume.pdf" class="cta-button" download>Download Resume 📄</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Aniket Prashar | The Business Transformer</p>
+            <p>Built with cosmic energy and mythological inspiration</p>
+        </div>
+    </footer>
+
+    <!-- React App Script -->
+    <script type="text/babel" src="src/index.js"></script>
+    
+    <!-- Existing Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Floating Profile Image Styles -->
+    <style>
+        .floating-profile {
+            position: absolute;
+            top: 50%;
+            right: 50px;
+            z-index: 1000;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            backdrop-filter: blur(10px);
+            transform: translateY(-50%);
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-40%) scale(0.8); }
+            to { opacity: 1; transform: translateY(-50%) scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .floating-profile {
+                width: 100px;
+                height: 100px;
+                right: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
