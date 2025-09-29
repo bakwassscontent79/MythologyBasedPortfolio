@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --midnight-blue: #0a0a2a;
+  --gold: #ffd700;
+  --saffron: #ff9933;
+  --neon-green: #39ff14;
+  --digital-purple: #800080;
+  --dark-bg: #050513;
+  --card-bg: rgba(10, 10, 42, 0.7);
+  --chakra-color: #ff5555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--dark-bg);
+  color: white;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+  background: linear-gradient(135deg, #0a0a2a 0%, #1a0a2a 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App-header {
+  background-color: rgba(10, 10, 42, 0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  max-width: 800px;
+  margin: 2rem;
+  width: 90%;
+}
+
+.App-header h1 {
+  color: #ffd700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  font-family: 'Noto Sans Devanagari', serif;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ff9933;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.shloka-text {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin: 2rem 0;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  font-style: italic;
+}
+
+.subtitle {
+  color: var(--saffron);
+  font-size: 1.2rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.about-section {
+  background: rgba(10, 10, 42, 0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  max-width: 800px;
+  margin: 2rem;
+  width: 90%;
+}
+
+.about-section h2 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  font-family: 'Noto Sans Devanagari', serif;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: var(--neon-green);
+  font-weight: bold;
+  border-bottom: 1px dotted var(--gold);
+}
+
+.dharma {
+  background: rgba(255, 153, 51, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 5px solid var(--saffron);
+  font-weight: bold;
+  font-size: 1.2rem !important;
+  margin-top: 1.5rem;
+}
+
+/* Portfolio Gallery Styles */
+.portfolio-gallery {
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gallery-item {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+  border-color: var(--gold);
+}
+
+.gallery-item.project {
+  border-color: rgba(57, 255, 20, 0.3);
+}
+
+.gallery-item.project:hover {
+  border-color: var(--neon-green);
+  box-shadow: 0 10px 30px rgba(57, 255, 20, 0.4);
+}
+
+.gallery-item.service {
+  border-color: rgba(128, 0, 128, 0.3);
+}
+
+.gallery-item.service:hover {
+  border-color: var(--digital-purple);
+  box-shadow: 0 10px 30px rgba(128, 0, 128, 0.4);
+}
+
+.gallery-item.cta {
+  background: linear-gradient(45deg, var(--digital-purple), #ff5555);
+  border: 2px solid var(--gold);
+}
+
+.gallery-item.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(128, 0, 128, 0.6);
+}
+
+.item-title {
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+.item-subtitle {
+  font-size: 0.95rem;
+  color: var(--saffron);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.item-tag {
+  font-size: 0.8rem;
+  color: var(--neon-green);
+  background: rgba(57, 255, 20, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.gallery-item.cta .item-title {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.gallery-item.cta .item-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
