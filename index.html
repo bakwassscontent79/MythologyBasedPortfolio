@@ -6,13 +6,7 @@
     <title>Aniket Prashar: The Business Transformer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="three-d.css">
-    <link rel="stylesheet" href="src/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Add React and Framer Motion -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
     <!-- Audio Player for Background Music -->
@@ -25,11 +19,6 @@
     <div class="music-control" id="music-control">
         <span class="music-icon">♪</span>
         <span class="music-text">Play Music</span>
-    </div>
-
-    <!-- Floating Profile Image -->
-    <div class="floating-profile">
-        <img src="Aniket.jpg" alt="Aniket Prashar" class="profile-image">
     </div>
 
     <!-- Hero Section with Shloka -->
@@ -61,7 +50,7 @@
                 <div class="hero-image-container">
                     <div class="image-display-area">
                         <img src="Aniket.jpg" alt="Aniket Prashar" class="display-image" onerror="this.style.display='none';">
-                        <p class="image-caption">Hi, I am <span class="animated-name">Aniket Prashar</span></p>
+                        <p class="image-caption">Hi, I am <span class="animated-name" id="nameAnimation">Aniket Prashar</span></p>
                         <p class="professional-titles">I am <span class="shloka-highlight">developer</span>, <span class="shloka-highlight">creator</span>, <span class="shloka-highlight">designer</span>, <span class="shloka-highlight">growth expert</span>, <span class="shloka-highlight">SEO and Geo expert</span>, <span class="shloka-highlight">market analyst</span> worked with companies like FAANG</p>
                     </div>
                 </div>
@@ -71,9 +60,6 @@
             <div class="chakra-spin"></div>
         </div>
     </section>
-
-    <!-- Portfolio Gallery Section -->
-    <section id="portfolio-gallery"></section>
 
     <!-- Quote Form Popup -->
     <div id="quotePopup" class="popup-overlay">
@@ -518,7 +504,7 @@
                     <div class="contact-label">GitHub</div>
                     <div class="contact-value">bakwassscontent79</div>
                 </a>
-                <a href="https0://portfolio-anikettt.netlify.app" class="contact-card" target="_blank">
+                <a href="https://portfolio-anikettt.netlify.app" class="contact-card" target="_blank">
                     <div class="contact-icon">🌐</div>
                     <div class="contact-label">Portfolio</div>
                     <div class="contact-value">portfolio-anikettt.netlify.app</div>
@@ -548,49 +534,6 @@
         </div>
     </footer>
 
-    <!-- React App Script -->
-    <script type="text/babel" src="src/index.js"></script>
-    
-    <!-- Existing Scripts -->
     <script src="script.js"></script>
-    
-    <!-- Floating Profile Image Styles -->
-    <style>
-        .floating-profile {
-            position: absolute;
-            top: 50%;
-            right: 50px;
-            z-index: 1000;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            backdrop-filter: blur(10px);
-            transform: translateY(-50%);
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-40%) scale(0.8); }
-            to { opacity: 1; transform: translateY(-50%) scale(1); }
-        }
-        
-        @media (max-width: 768px) {
-            .floating-profile {
-                width: 100px;
-                height: 100px;
-                right: 20px;
-            }
-        }
-    </style>
 </body>
 </html>

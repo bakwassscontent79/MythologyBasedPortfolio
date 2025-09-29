@@ -337,3 +337,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Add the animated name rotation
+document.addEventListener('DOMContentLoaded', function() {
+    const nameElement = document.getElementById('nameAnimation');
+    if (nameElement) {
+        const roles = ['developer', 'designer', 'creator', 'analyst'];
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            nameElement.textContent = roles[currentIndex];
+            nameElement.style.color = getColorForRole(roles[currentIndex]);
+            currentIndex = (currentIndex + 1) % roles.length;
+        }, 2000);
+    }
+    
+    function getColorForRole(role) {
+        const colors = {
+            'developer': '#39ff14', // neon green
+            'designer': '#ffd700',  // gold
+            'creator': '#ff9933',   // saffron
+            'analyst': '#800080'    // purple
+        };
+        return colors[role] || '#ffd700'; // default to gold
+    }
+});
